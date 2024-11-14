@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fast Code - Foodie</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+            text-decoration: none;
+            list-style: none;
+        }
+
+        .hero {
+            min-height: 100vh;
+            background: url(best.jpg);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 90%;
+            margin: auto;
+            padding-top: 20px;
+        }
+
+        .logo {
+            color: #e78f38;
+            font-size: 30px;
+            font-weight: bolder;
+            transition: .3s;
+        }
+
+        .logo:hover {
+            transform: translateX(20px);
+        }
+
+        nav ul {
+            display: flex;
+            align-items: center;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            font-size: 15px;
+            color: cornsilk;
+            text-transform: uppercase;
+        }
+
+        nav ul li a:hover {
+            color: #e78f38;
+            border-bottom: 2px solid #e78f38;
+        }
+
+        nav button {
+            background-color: #e78f38;
+            border: none;
+            color: cornsilk;
+            padding: 12px 35px;
+            font-size: 15px;
+            font-weight: 600;
+            border-radius: 2rem;
+            transition: .3s;
+        }
+
+        nav button:hover {
+            scale: .8;
+        }
+
+        .content {
+            position: absolute;
+            top: 35%;
+            left: 90px;
+        }
+
+        h2 {
+            font-size: 50px;
+            text-transform: uppercase;
+            color: cornsilk;
+        }
+
+        p {
+            font-size: 11px;
+            margin-top: 10px;
+            color: cadetblue;
+        }
+
+        .content button {
+            margin-top: 50px;
+            background-color: #e78f38;
+            border: none;
+            color: cornsilk;
+            padding: 12px 35px;
+            font-size: 15px;
+            font-weight: 600;
+            border-radius: 2rem;
+            transition: .3s;
+        }
+
+        .content button:hover {
+            scale: .8;
+        }
+
+        .conten button.know_more {
+            background: transparent;
+            border: 2px solid #e78f38;
+            color: #e78f38;
+            margin-left: 30px;
+        }
+
+        .conten button.know_more:hover {
+            background-color: #e78f38;
+            color: cornsilk;
+        }
+
+        #about {
+            padding: 50px 0;
+            background-color: #f9f9f9;
+        }
+
+        #about h2 {
+            text-align: center;
+            font-size: 40px;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        #about p {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        #reviews {
+            padding: 50px 0;
+            background-color: #f4f4f4;
+        }
+
+        #reviews h2 {
+            text-align: center;
+            font-size: 40px;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .review-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .review-item {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+
+        .review-item p {
+            font-size: 14px;
+            color: #555;
+        }
+
+        .review-item h3 {
+            font-size: 18px;
+            margin: 15px 0;
+            color: #e78f38;
+        }
+
+        .review-item span {
+            font-style: italic;
+            color: #777;
+        }
+
+        #contact {
+            padding: 50px 0;
+            background-color: #e0f7fa;
+        }
+
+        #contact h2 {
+            text-align: center;
+            font-size: 40px;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        #contact p {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto 20px;
+        }
+
+        #contact .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        #contact .contact-info div {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 250px;
+            text-align: center;
+        }
+
+        #contact .contact-info div h3 {
+            font-size: 18px;
+            color: #e78f38;
+            margin-bottom: 10px;
+        }
+
+        #contact .contact-info div p {
+            font-size: 14px;
+            color: #555;
+        }
+        #menu {
+            padding: 50px 0;
+            background-color: #f9f9f9;
+        }
+
+        #menu h2 {
+            text-align: center;
+            font-size: 40px;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .menu-items {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .menu-item {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 250px;
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .menu-item h3 {
+            font-size: 22px;
+            color: #e78f38;
+            margin-bottom: 10px;
+        }
+
+        .menu-item p {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .menu-item .price {
+            font-size: 18px;
+            font-weight: bold;
+            color: #e78f38;
+        }
+    </style>
+</head>
+<body>
+
+   <div class="hero">
+        <nav>
+            <a href="#" class="logo">Foodie</a>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li> 
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button>Login</button>
+        </nav>
+
+        <div class="content">
+            <h2>A Taste Sensation Like No Other</h2>
+            <p>At Farm-to-Table Bistro, we bring you the freshest ingredients straight from local farms to your plate.<br>Enjoy a taste of Italy at Bella's, where our authentic recipes and cozy atmosphere make every meal special.<br>Our friendly staff and warm, inviting atmosphere make every meal feel like a special occasion. At Sunset Grill, you can enjoy stunning ocean views while savoring our signature cocktails and delicious dishes."</p>
+            <button>Order Now</button>
+            <button class="know_more">Know More</button>
+        </div>
+   </div>
+
+   <div id="about">
+        <h2>About Us</h2>
+        <p>Welcome to Foodie, where we strive to bring you the best dining experience. We are passionate about offering freshly prepared meals made with the finest ingredients. Our team of chefs is dedicated to crafting innovative dishes, while our servers ensure you feel at home every time you visit. Whether you're here for a casual meal or a special occasion, Foodie is committed to providing exceptional service and a memorable experience.</p>
+   </div>
+
+   <div id="reviews">
+        <h2>Customer Reviews</h2>
+        <div class="review-container">
+            <div class="review-item">
+                <h3>John Doe</h3>
+                <p>"Amazing food and excellent service! Will definitely come back."</p>
+                <span>- Foodie Lover</span>
+            </div>
+            <div class="review-item">
+                <h3>Jane Smith</h3>
+                <p>"The best pasta I've ever had! Highly recommend this place."</p>
+                <span>- Pasta Enthusiast</span>
+            </div>
+            <div class="review-item">
+                <h3>Emily Johnson</h3>
+                <p>"A delightful dining experience. Cozy ambiance and tasty dishes."</p>
+                <span>- Regular Customer</span>
+            </div>
+        </div>
+   </div>
+
+   <div id="menu">
+        <h2>Our Menu</h2>
+        <div class="menu-items">
+            <div class="menu-item">
+                <h3>Spaghetti Carbonara</h3>
+                <p>A creamy pasta with pancetta, egg, and parmesan.</p>
+                <span class="price">₹ 450</span>
+            </div>
+            <div class="menu-item">
+                <h3>Margherita Pizza</h3>
+                <p>Classic pizza topped with mozzarella, tomato, and fresh basil.</p>
+                <span class="price">₹ 350</span>
+            </div>
+            <div class="menu-item">
+                <h3>Caesar Salad</h3>
+                <p>Crisp lettuce, creamy dressing, croutons, and parmesan.</p>
+                <span class="price">₹ 250</span>
+            </div>
+            <div class="menu-item">
+                <h3>Grilled Chicken Sandwich</h3>
+                <p>Grilled chicken, fresh veggies, and a savory sauce in a toasted bun.</p>
+                <span class="price">₹ 300</span>
+            </div>
+            <div class="menu-item">
+                <h3>Vegetable Risotto</h3>
+                <p>A creamy rice dish with fresh vegetables and herbs.</p>
+                <span class="price">₹ 400</span>
+            </div>
+            <div class="menu-item">
+                <h3>Chocolate Lava Cake</h3>
+                <p>Warm chocolate cake with a molten center, served with vanilla ice cream.</p>
+                <span class="price">₹ 250</span>
+            </div>
+        </div>
+   </div>
+
+   <div id="contact">
+        <h2>Contact Us</h2>
+        <p>If you have any questions or need more information, feel free to get in touch with us. We are here to help!</p>
+        <div class="contact-info">
+            <div>
+                <h3>Address</h3>
+                <p>1223 street food market, India </p>
+            </div>
+            <div>
+                <h3>Email</h3>
+                <p>contact@foodie.com</p>
+            </div>
+            <div>
+                <h3>Phone</h3>
+                <p>9XXXXXX5</p>
+            </div>
+        </div>
+   </div>
+
+</body>
+</html>
